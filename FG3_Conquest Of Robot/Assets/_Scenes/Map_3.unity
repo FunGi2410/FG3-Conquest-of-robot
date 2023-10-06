@@ -1234,6 +1234,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6161045079930786731, guid: 3e994165089dcab44ba2fc70f5d19742, type: 3}
+      propertyPath: waves.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161045079930786731, guid: 3e994165089dcab44ba2fc70f5d19742, type: 3}
       propertyPath: timeBetweenSpawns
       value: 2
       objectReference: {fileID: 0}
@@ -1245,6 +1249,10 @@ PrefabInstance:
       propertyPath: waves.Array.data[1].enemy
       value: 
       objectReference: {fileID: 270221315932247628, guid: 7a86f4e8ba1ab2d4f912bc6e90aef418, type: 3}
+    - target: {fileID: 6161045079930786731, guid: 3e994165089dcab44ba2fc70f5d19742, type: 3}
+      propertyPath: waves.Array.data[0].enemyCount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e994165089dcab44ba2fc70f5d19742, type: 3}
 --- !u!1 &1595848847

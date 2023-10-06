@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverUI;
     public GameObject gameWonUI;
 
+    public const int SCENCE_AMOUNT = 3;
+
     private void Start()
     {
         FindObjectOfType<Player>().OnDeath += OnGameOver;
@@ -34,11 +36,14 @@ public class UIManager : MonoBehaviour
     // UI Level
     public void ToNextLevel()
     {
+        if ((SceneManager.GetActiveScene().buildIndex + 1) > SCENCE_AMOUNT) return;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void ToPrevLevel()
     {
+        if ((SceneManager.GetActiveScene().buildIndex - 1) < 1) return;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
+
 }

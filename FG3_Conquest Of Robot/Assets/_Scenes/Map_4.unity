@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6161045079930786731, guid: 3e994165089dcab44ba2fc70f5d19742, type: 3}
       propertyPath: waves.Array.size
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6161045079930786731, guid: 3e994165089dcab44ba2fc70f5d19742, type: 3}
       propertyPath: timeBetweenSpawns
