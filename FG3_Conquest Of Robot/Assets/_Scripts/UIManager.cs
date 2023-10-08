@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 {
     public GameObject gameOverUI;
     public GameObject gameWonUI;
+    public GameObject gameCompleteUI;
 
     public const int SCENCE_AMOUNT = 3;
 
@@ -24,13 +25,28 @@ public class UIManager : MonoBehaviour
 
     void OnGameWon()
     {
+        if ((SceneManager.GetActiveScene().buildIndex + 1) > SCENCE_AMOUNT)
+        {
+            this.OnGameComplete();
+            return;
+        }
         this.gameWonUI.SetActive(true);
+    }
+
+    void OnGameComplete()
+    {
+        this.gameCompleteUI.SetActive(true);
     }
 
     // UI Input
     public void OnPlayAgainBnt()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void OnRestartGame()
+    {
+        SceneManager.LoadScene(1);
     }
 
     // UI Level
