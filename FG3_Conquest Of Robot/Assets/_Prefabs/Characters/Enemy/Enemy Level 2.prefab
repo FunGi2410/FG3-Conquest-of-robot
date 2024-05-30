@@ -104,9 +104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 5
   enemy_SO: {fileID: 11400000, guid: 0ce4ba46c89918f48b460ccab6ffe760, type: 2}
+  id: 1
   anim: {fileID: 0}
-  moving: 0
-  dirToTarget: {x: 0, y: 0}
 --- !u!114 &8957293114709924924
 MonoBehaviour:
   m_ObjectHideFlags: 0

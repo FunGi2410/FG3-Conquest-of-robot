@@ -7,7 +7,8 @@ public class Spawner : MonoBehaviour
     public event System.Action OnFireAllEnemy;
 
     public List<Wave> waves = new List<Wave>();
-    
+    public List<Enemy> objPools= new List<Enemy>();
+
     public Transform enemySpawnPos;
 
     int currentWaveIndex;
@@ -20,6 +21,21 @@ public class Spawner : MonoBehaviour
 
     [SerializeField]
     bool isAllEnemyDie = false;
+
+    private void Awake()
+    {
+        foreach(Wave wave in waves)
+        {
+            for(int i = 0; i < wave.enemyCount; i++)
+            {
+                Enemy enemyInstance = Instantiate(wave.enemy,
+                this.enemySpawnPos.position,
+                Quaternion.identity);
+                enemyInstance.gameObject.SetActive(false);
+                this.objPools.Add(enemyInstance);
+            }
+        }
+    }
 
     private void Start()
     {
@@ -45,17 +61,24 @@ public class Spawner : MonoBehaviour
         {
             this.currentWaveIndex = Random.Range(0, this.waves.Count);
             this.nextSpawnTime = Time.time + this.timeBetweenSpawns;
-            Enemy spawnedEnemy = Instantiate(this.waves[this.currentWaveIndex].enemy, 
+
+            /*Enemy spawnedEnemy = Instantiate(this.waves[this.currentWaveIndex].enemy, 
                 this.enemySpawnPos.position, 
-                Quaternion.identity) as Enemy;
+                Quaternion.identity) as Enemy;*/
+            for(int i = 0; i < objPools.Count; i++)
+            {
+                if(!objPools[i].gameObject.activeSelf && objPools[i].Id == waves[currentWaveIndex].enemy.Id)
+                {
+                    objPools[i].gameObject.SetActive(true);
+                    break;
+                }
+            }
             this.enemyAlive++;
             this.waves[this.currentWaveIndex].enemyCount--;
             if (this.waves[this.currentWaveIndex].enemyCount <= 0)
             {
                 this.waves.RemoveAt(this.currentWaveIndex);
             }
-            
-            //spawnedEnemy.OnDeath += OnEnemyDeath;
         }
     }
 

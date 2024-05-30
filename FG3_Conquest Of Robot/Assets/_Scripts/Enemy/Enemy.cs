@@ -11,9 +11,19 @@ public class Enemy : LivingEntity
 
     protected Rigidbody2D mRig;
     public enum State { Idle, Chasing, Attacking };
+    public enum EnemyID
+    {
+        level_1,
+        level_2,
+        level_3,
+        level_4,
+        level_5,
+        level_6
+    }
     State currentState;
+    [SerializeField] EnemyID id;
 
-    
+
     Transform target;
 
     LivingEntity targetEntity;
@@ -33,6 +43,13 @@ public class Enemy : LivingEntity
 
     float timmer = 0f;
     float timeIdleToAttack = 1f;
+
+    public EnemyID Id { get => id; set => id = value; }
+
+    private void Awake()
+    {
+        Id = enemy_SO.id;
+    }
 
     protected override void Start()
     {

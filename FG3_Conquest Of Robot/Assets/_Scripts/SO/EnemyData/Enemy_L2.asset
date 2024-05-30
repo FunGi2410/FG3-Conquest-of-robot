@@ -17,3 +17,4 @@ MonoBehaviour:
   disAttack: 3
   speedWalk: 3.5
   gun: {fileID: 8082378086326017534, guid: a5545858607a7b14c9d5119ea4db10e2, type: 3}
+  id: 1

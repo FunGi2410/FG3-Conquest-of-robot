@@ -44,6 +44,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
         {
             this.OnDeath();
         }
-        GameObject.Destroy(gameObject);
+        //GameObject.Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

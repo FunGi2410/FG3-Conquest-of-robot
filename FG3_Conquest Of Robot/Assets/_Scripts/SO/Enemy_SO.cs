@@ -14,5 +14,6 @@ public class Enemy_SO : ScriptableObject
     public float disAttack;
     public float speedWalk;
     public Gun gun;
+    public Enemy.EnemyID id;
 }
 
